@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-language" content="vi" />
+    <meta property="og:image" content="sc.PNG" />
+    <title>Tao nhớ mày</title>
+    <link rel="shortcut icon" href="http://imgur.com/tu7Lr95.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+    />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <style>
+      :root {
+        --gradient: linear-gradient(135deg, #ff6cab 0%, #7366ff 50%, #31d2f7 100%);
+        --bg: #0f1021;
+        --card-bg: rgba(15, 16, 33, 0.8);
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        --text-primary: #fefefe;
+        --text-secondary: rgba(255, 255, 255, 0.75);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text-primary);
+        background: var(--bg);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 16px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: absolute;
+        width: 50vw;
+        height: 50vw;
+        background: radial-gradient(circle, rgba(255, 108, 171, 0.35), transparent 60%);
+        filter: blur(10px);
+        z-index: 0;
+      }
+
+      body::before {
+        top: -15%;
+        left: -10%;
+      }
+
+      body::after {
+        bottom: -15%;
+        right: -10%;
+        background: radial-gradient(circle, rgba(49, 210, 247, 0.45), transparent 60%);
+      }
+
+      main {
+        width: 100%;
+        max-width: 920px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        z-index: 1;
+      }
+
+      .love-card {
+        background: var(--card-bg);
+        border-radius: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow);
+        padding: 48px 40px;
+            text-align: center;
+        backdrop-filter: blur(16px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .love-card::before {
+        content: "";
+        position: absolute;
+        inset: 12px;
+        border-radius: 24px;
+        border: 1px dashed rgba(255, 255, 255, 0.12);
+        pointer-events: none;
+      }
+
+      .love-card h1 {
+        font-size: 28px;
+        line-height: 1.4;
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .love-card h1 span {
+        color: #ffd369;
+      }
+
+      .love-content {
+        margin-top: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+            position: relative;
+        height: 72px;
+      }
+
+      .love-btn {
+        min-width: 140px;
+        padding: 16px 20px;
+        border-radius: 999px;
+        border: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-primary);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .love-btn:hover,
+      .love-btn:focus {
+        outline: none;
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .love-btn-primary {
+        background-image: var(--gradient);
+        color: #0f1021;
+      }
+
+      .love-detail {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 32px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+      }
+
+      .love-detail h3 {
+        margin: 0;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+      }
+
+      .love-detail p {
+        margin: 0;
+        font-size: 16px;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .heart {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+        background-image: var(--gradient);
+        color: #0f1021;
+            font-size: 20px;
+        font-weight: 700;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 24px;
+        width: 100%;
+            text-align: center;
+        color: var(--text-secondary);
+        font-size: 14px;
+        z-index: 1;
+      }
+
+      footer a {
+        color: #ffd369;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .modal-content {
+        border-radius: 20px;
+        padding: 32px;
+        background: #1c1f37;
+        color: #fff;
+      }
+
+      .modal-body p {
+        margin: 12px 0;
+        font-size: 18px;
+        text-align: center;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 24px 16px 120px;
+        }
+
+        .love-card {
+          padding: 40px 24px;
+        }
+
+        .love-card h1 {
+          font-size: 24px;
+        }
+
+        .love-content {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .love-btn {
+          width: 100%;
+        }
+        }
+    </style>
+</head>
+<body>
+<script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+
+      ga("create", "UA-62964752-2", "auto");
+      ga("send", "pageview");
+</script>
+
+    <main>
+      <section class="love-card">
+        <div class="heart">♡</div>
+        <h1>
+          Anh yêu em bấy lâu nay mà chẳng dám nói.<br />
+          <span>Còn em? Em có yêu anh không?</span>
+        </h1>
+        <div class="love-content">
+          <button class="love-btn love-btn-one" data-role="no">Không</button>
+          <button class="love-btn love-btn-two love-btn-primary" data-role="yes">
+            Em có
+          </button>
+        </div>
+      </section>
+
+      <section class="love-detail">
+        <h3>Chút thú vị</h3>
+        <p>
+          Hai nút bấm “Không” và “Em có” sẽ liên tục đổi vị trí để nhắc khéo rằng tình yêu
+          luôn cần sự chủ động. Khi một trong hai nút đứng yên, hãy mạnh dạn bấm thử nhé!
+        </p>
+        <p>
+          Khi em đồng ý, một cánh cửa nhỏ sẽ mở ra cùng những lời nhắn nhủ thật ngọt ngào.
+          Còn nếu em cứ trêu anh, anh vẫn kiên nhẫn đợi ở đây.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 <a href="https://www.facebook.com/tranthoilong">Trần Thới Long</a> |
+        <a href="https://www.youtube.com/@tranthoilong">Youtube</a>
+      </p>
+      <iframe
+        src="http://www.nhaccuatui.com/mh/background/G2Fil0oSQeHm"
+        width="1"
+        height="1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <audio autoplay></audio>
+    </footer>
+
+   <div class="modal fade" id="myLove" role="dialog" style="display: none">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+      <div class="modal-body">
+            <p>ANH BIẾT MÀ :D</p>
+            <p>ANH CHỈ NÓI ĐÙA THÔI. TIN NGƯỜI VKL.</p>
+      </div>
+</div>
+</div>
+</div>
+
+<script>
+    $(document).ready(function () {
+      var $buttons = $(".love-btn");
+
+      function detectmob() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(
+          navigator.userAgent
+        );
+      }
+
+      function isYes(btn) {
+        return btn.text().trim().toLowerCase() === "em có";
+      }
+
+      function swapToYes(btn) {
+        if (isYes(btn)) return;
+        var $other = $buttons.not(btn);
+        btn.text("Em có").addClass("love-btn-primary");
+        $other.text("Không").removeClass("love-btn-primary");
+      }
+
+      function showModal() {
+        $("#myLove").modal();
+      }
+
+      $buttons.on("mouseenter", function () {
+        swapToYes($(this));
+      });
+
+      $buttons.on("click", function () {
+        var $this = $(this);
+        if (detectmob()) {
+          swapToYes($this);
+          setTimeout(showModal, 400);
+        } else if (isYes($this)) {
+          showModal();
+        }
+      });
+    });
+</script>
+  </body>
+</html>
